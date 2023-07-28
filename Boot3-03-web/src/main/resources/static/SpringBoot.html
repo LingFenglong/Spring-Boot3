@@ -1,0 +1,2978 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width initial-scale=1'>
+
+	<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext'
+		  rel='stylesheet' type='text/css'/>
+	<style type='text/css'>html {
+        overflow-x: initial !important;
+    }
+
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --select-text-bg-color: #B5D6FC;
+        --select-text-font-color: auto;
+        --monospace: "Lucida Console", Consolas, "Courier", monospace;
+        --title-bar-height: 20px;
+    }
+
+    .mac-os-11 {
+        --title-bar-height: 28px;
+    }
+
+    html {
+        font-size: 14px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        height: auto;
+        inset: 0px;
+        font-size: 1rem;
+        line-height: 1.42857;
+        overflow-x: hidden;
+        background: inherit;
+        tab-size: 4;
+    }
+
+    iframe {
+        margin: auto;
+    }
+
+    a.url {
+        word-break: break-all;
+    }
+
+    a:active, a:hover {
+        outline: 0px;
+    }
+
+    .in-text-selection, ::selection {
+        text-shadow: none;
+        background: var(--select-text-bg-color);
+        color: var(--select-text-font-color);
+    }
+
+    #write {
+        margin: 0px auto;
+        height: auto;
+        width: inherit;
+        word-break: normal;
+        overflow-wrap: break-word;
+        position: relative;
+        white-space: normal;
+        overflow-x: visible;
+        padding-top: 36px;
+    }
+
+    #write.first-line-indent p {
+        text-indent: 2em;
+    }
+
+    #write.first-line-indent li p, #write.first-line-indent p * {
+        text-indent: 0px;
+    }
+
+    #write.first-line-indent li {
+        margin-left: 2em;
+    }
+
+    .for-image #write {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    body.typora-export {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .typora-export .footnote-line, .typora-export li, .typora-export p {
+        white-space: pre-wrap;
+    }
+
+    .typora-export .task-list-item input {
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 500px) {
+        body.typora-export {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        #write {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .CodeMirror-sizer {
+            margin-left: 0px !important;
+        }
+
+        .CodeMirror-gutters {
+            display: none !important;
+        }
+    }
+
+    #write li > figure:last-child {
+        margin-bottom: 0.5rem;
+    }
+
+    #write ol, #write ul {
+        position: relative;
+    }
+
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+        image-orientation: from-image;
+    }
+
+    button, input, select, textarea {
+        color: inherit;
+        font: inherit;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+        line-height: normal;
+        padding: 0px;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+        width: inherit;
+    }
+
+    #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p {
+        position: relative;
+    }
+
+    p {
+        line-height: inherit;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        break-after: avoid-page;
+        break-inside: avoid;
+        orphans: 4;
+    }
+
+    p {
+        orphans: 4;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .md-blockmeta {
+        color: rgb(204, 204, 204);
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    sup.md-footnote {
+        padding: 2px 4px;
+        background-color: rgba(238, 238, 238, 0.7);
+        color: rgb(85, 85, 85);
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    sup.md-footnote a, sup.md-footnote a:hover {
+        color: inherit;
+        text-transform: inherit;
+        text-decoration: inherit;
+    }
+
+    #write input[type="checkbox"] {
+        cursor: pointer;
+        width: inherit;
+        height: inherit;
+    }
+
+    figure {
+        overflow-x: auto;
+        margin: 1.2em 0px;
+        max-width: calc(100% + 16px);
+        padding: 0px;
+    }
+
+    figure > table {
+        margin: 0px;
+    }
+
+    tr {
+        break-inside: avoid;
+        break-after: auto;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0px;
+        width: 100%;
+        overflow: auto;
+        break-inside: auto;
+        text-align: left;
+    }
+
+    table.md-table td {
+        min-width: 32px;
+    }
+
+    .CodeMirror-gutters {
+        border-right: 0px;
+        background-color: inherit;
+    }
+
+    .CodeMirror-linenumber {
+        user-select: none;
+    }
+
+    .CodeMirror {
+        text-align: left;
+    }
+
+    .CodeMirror-placeholder {
+        opacity: 0.3;
+    }
+
+    .CodeMirror pre {
+        padding: 0px 4px;
+    }
+
+    .CodeMirror-lines {
+        padding: 0px;
+    }
+
+    div.hr:focus {
+        cursor: none;
+    }
+
+    #write pre {
+        white-space: pre-wrap;
+    }
+
+    #write.fences-no-line-wrapping pre {
+        white-space: pre;
+    }
+
+    #write pre.ty-contain-cm {
+        white-space: normal;
+    }
+
+    .CodeMirror-gutters {
+        margin-right: 4px;
+    }
+
+    .md-fences {
+        font-size: 0.9rem;
+        display: block;
+        break-inside: avoid;
+        text-align: left;
+        overflow: visible;
+        white-space: pre;
+        background: inherit;
+        position: relative !important;
+    }
+
+    .md-fences-adv-panel {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 8px;
+        overflow-x: auto;
+    }
+
+    #write .md-fences.mock-cm {
+        white-space: pre-wrap;
+    }
+
+    .md-fences.md-fences-with-lineno {
+        padding-left: 0px;
+    }
+
+    #write.fences-no-line-wrapping .md-fences.mock-cm {
+        white-space: pre;
+        overflow-x: auto;
+    }
+
+    .md-fences.mock-cm.md-fences-with-lineno {
+        padding-left: 8px;
+    }
+
+    .CodeMirror-line, twitterwidget {
+        break-inside: avoid;
+    }
+
+    .footnotes {
+        opacity: 0.8;
+        font-size: 0.9rem;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .footnotes + .footnotes {
+        margin-top: 0px;
+    }
+
+    .md-reset {
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        outline: 0px;
+        vertical-align: top;
+        background: 0px 0px;
+        text-decoration: none;
+        text-shadow: none;
+        float: none;
+        position: static;
+        width: auto;
+        height: auto;
+        white-space: nowrap;
+        cursor: inherit;
+        -webkit-tap-highlight-color: transparent;
+        line-height: normal;
+        font-weight: 400;
+        text-align: left;
+        box-sizing: content-box;
+        direction: ltr;
+    }
+
+    li div {
+        padding-top: 0px;
+    }
+
+    blockquote {
+        margin: 1rem 0px;
+    }
+
+    li .mathjax-block, li p {
+        margin: 0.5rem 0px;
+    }
+
+    li blockquote {
+        margin: 1rem 0px;
+    }
+
+    li {
+        margin: 0px;
+        position: relative;
+    }
+
+    blockquote > :last-child {
+        margin-bottom: 0px;
+    }
+
+    blockquote > :first-child, li > :first-child {
+        margin-top: 0px;
+    }
+
+    .footnotes-area {
+        color: rgb(136, 136, 136);
+        margin-top: 0.714rem;
+        padding-bottom: 0.143rem;
+        white-space: normal;
+    }
+
+    #write .footnote-line {
+        white-space: pre-wrap;
+    }
+
+    @media print {
+        body, html {
+            border: 1px solid transparent;
+            height: 99%;
+            break-after: avoid;
+            break-before: avoid;
+            font-variant-ligatures: no-common-ligatures;
+        }
+
+        #write {
+            margin-top: 0px;
+            padding-top: 0px;
+            border-color: transparent !important;
+        }
+
+        .typora-export * {
+            -webkit-print-color-adjust: exact;
+        }
+
+        .typora-export #write {
+            break-after: avoid;
+        }
+
+        .typora-export #write::after {
+            height: 0px;
+        }
+
+        .is-mac table {
+            break-inside: avoid;
+        }
+
+        .typora-export-show-outline .typora-export-sidebar {
+            display: none;
+        }
+    }
+
+    .footnote-line {
+        margin-top: 0.714em;
+        font-size: 0.7em;
+    }
+
+    a img, img a {
+        cursor: pointer;
+    }
+
+    pre.md-meta-block {
+        font-size: 0.8rem;
+        min-height: 0.8rem;
+        white-space: pre-wrap;
+        background: rgb(204, 204, 204);
+        display: block;
+        overflow-x: hidden;
+    }
+
+    p > .md-image:only-child:not(.md-img-error) img, p > img:only-child {
+        display: block;
+        margin: auto;
+    }
+
+    #write.first-line-indent p > .md-image:only-child:not(.md-img-error) img {
+        left: -2em;
+        position: relative;
+    }
+
+    p > .md-image:only-child {
+        display: inline-block;
+        width: 100%;
+    }
+
+    #write .MathJax_Display {
+        margin: 0.8em 0px 0px;
+    }
+
+    .md-math-block {
+        width: 100%;
+    }
+
+    .md-math-block:not(:empty)::after {
+        display: none;
+    }
+
+    .MathJax_ref {
+        fill: currentcolor;
+    }
+
+    [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus {
+        outline: 0px;
+        box-shadow: none;
+    }
+
+    .md-task-list-item {
+        position: relative;
+        list-style-type: none;
+    }
+
+    .task-list-item.md-task-list-item {
+        padding-left: 0px;
+    }
+
+    .md-task-list-item > input {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin-left: -1.2em;
+        margin-top: calc(1em - 10px);
+        border: none;
+    }
+
+    .math {
+        font-size: 1rem;
+    }
+
+    .md-toc {
+        min-height: 3.58rem;
+        position: relative;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .md-toc-content {
+        position: relative;
+        margin-left: 0px;
+    }
+
+    .md-toc-content::after, .md-toc::after {
+        display: none;
+    }
+
+    .md-toc-item {
+        display: block;
+        color: rgb(65, 131, 196);
+    }
+
+    .md-toc-item a {
+        text-decoration: none;
+    }
+
+    .md-toc-inner:hover {
+        text-decoration: underline;
+    }
+
+    .md-toc-inner {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .md-toc-h1 .md-toc-inner {
+        margin-left: 0px;
+        font-weight: 700;
+    }
+
+    .md-toc-h2 .md-toc-inner {
+        margin-left: 2em;
+    }
+
+    .md-toc-h3 .md-toc-inner {
+        margin-left: 4em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+        margin-left: 6em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+        margin-left: 8em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+        margin-left: 10em;
+    }
+
+    @media screen and (max-width: 48em) {
+        .md-toc-h3 .md-toc-inner {
+            margin-left: 3.5em;
+        }
+
+        .md-toc-h4 .md-toc-inner {
+            margin-left: 5em;
+        }
+
+        .md-toc-h5 .md-toc-inner {
+            margin-left: 6.5em;
+        }
+
+        .md-toc-h6 .md-toc-inner {
+            margin-left: 8em;
+        }
+    }
+
+    a.md-toc-inner {
+        font-size: inherit;
+        font-style: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+    }
+
+    .footnote-line a:not(.reversefootnote) {
+        color: inherit;
+    }
+
+    .md-attr {
+        display: none;
+    }
+
+    .md-fn-count::after {
+        content: ".";
+    }
+
+    code, pre, samp, tt {
+        font-family: var(--monospace);
+    }
+
+    kbd {
+        margin: 0px 0.1em;
+        padding: 0.1em 0.6em;
+        font-size: 0.8em;
+        color: rgb(36, 39, 41);
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(173, 179, 185);
+        border-radius: 3px;
+        box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    .md-comment {
+        color: rgb(162, 127, 3);
+        opacity: 0.6;
+        font-family: var(--monospace);
+    }
+
+    code {
+        text-align: left;
+        vertical-align: initial;
+    }
+
+    a.md-print-anchor {
+        white-space: pre !important;
+        border-width: initial !important;
+        border-style: none !important;
+        border-color: initial !important;
+        display: inline-block !important;
+        position: absolute !important;
+        width: 1px !important;
+        right: 0px !important;
+        outline: 0px !important;
+        background: 0px 0px !important;
+        text-decoration: initial !important;
+        text-shadow: initial !important;
+    }
+
+    .os-windows.monocolor-emoji .md-emoji {
+        font-family: "Segoe UI Symbol", sans-serif;
+    }
+
+    .md-diagram-panel > svg {
+        max-width: 100%;
+    }
+
+    [lang="flow"] svg, [lang="mermaid"] svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    [lang="mermaid"] .node text {
+        font-size: 1rem;
+    }
+
+    table tr th {
+        border-bottom: 0px;
+    }
+
+    video {
+        max-width: 100%;
+        display: block;
+        margin: 0px auto;
+    }
+
+    iframe {
+        max-width: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    .highlight td, .highlight tr {
+        border: 0px;
+    }
+
+    mark {
+        background: rgb(255, 255, 0);
+        color: rgb(0, 0, 0);
+    }
+
+    .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong {
+        color: inherit;
+    }
+
+    .md-expand mark .md-meta {
+        opacity: 0.3 !important;
+    }
+
+    mark .md-meta {
+        color: rgb(0, 0, 0);
+    }
+
+    @media print {
+        .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 {
+            break-inside: avoid;
+        }
+    }
+
+    .md-diagram-panel .messageText {
+        stroke: none !important;
+    }
+
+    .md-diagram-panel .start-state {
+        fill: var(--node-fill);
+    }
+
+    .md-diagram-panel .edgeLabel rect {
+        opacity: 1 !important;
+    }
+
+    .md-fences.md-fences-math {
+        font-size: 1em;
+    }
+
+    .md-fences-advanced:not(.md-focus) {
+        padding: 0px;
+        white-space: nowrap;
+        border: 0px;
+    }
+
+    .md-fences-advanced:not(.md-focus) {
+        background: inherit;
+    }
+
+    .typora-export-show-outline .typora-export-content {
+        max-width: 1440px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .typora-export-sidebar {
+        width: 300px;
+        font-size: 0.8rem;
+        margin-top: 80px;
+        margin-right: 18px;
+    }
+
+    .typora-export-show-outline #write {
+        --webkit-flex: 2;
+        flex: 2 1 0%;
+    }
+
+    .typora-export-sidebar .outline-content {
+        position: fixed;
+        top: 0px;
+        max-height: 100%;
+        overflow: hidden auto;
+        padding-bottom: 30px;
+        padding-top: 60px;
+        width: 300px;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .typora-export-sidebar, .typora-export-sidebar .outline-content {
+            width: 240px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .typora-export-sidebar {
+            display: none;
+        }
+    }
+
+    .outline-content li, .outline-content ul {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        list-style: none;
+    }
+
+    .outline-content ul {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .outline-content strong {
+        font-weight: 400;
+    }
+
+    .outline-expander {
+        width: 1rem;
+        height: 1.42857rem;
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        cursor: pointer;
+        padding-left: 4px;
+    }
+
+    .outline-expander::before {
+        content: "";
+        position: relative;
+        font-family: Ionicons;
+        display: inline-block;
+        font-size: 8px;
+        vertical-align: middle;
+    }
+
+    .outline-item {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        cursor: pointer;
+    }
+
+    .outline-expander:hover::before {
+        content: "";
+    }
+
+    .outline-h1 > .outline-item {
+        padding-left: 0px;
+    }
+
+    .outline-h2 > .outline-item {
+        padding-left: 1em;
+    }
+
+    .outline-h3 > .outline-item {
+        padding-left: 2em;
+    }
+
+    .outline-h4 > .outline-item {
+        padding-left: 3em;
+    }
+
+    .outline-h5 > .outline-item {
+        padding-left: 4em;
+    }
+
+    .outline-h6 > .outline-item {
+        padding-left: 5em;
+    }
+
+    .outline-label {
+        cursor: pointer;
+        display: table-cell;
+        vertical-align: middle;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .outline-label:hover {
+        text-decoration: underline;
+    }
+
+    .outline-item:hover {
+        border-color: rgb(245, 245, 245);
+        background-color: var(--item-hover-bg-color);
+    }
+
+    .outline-item:hover {
+        margin-left: -28px;
+        margin-right: -28px;
+        border-left: 28px solid transparent;
+        border-right: 28px solid transparent;
+    }
+
+    .outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before {
+        display: none;
+    }
+
+    .outline-item-open > .outline-item > .outline-expander::before {
+        content: "";
+    }
+
+    .outline-children {
+        display: none;
+    }
+
+    .info-panel-tab-wrapper {
+        display: none;
+    }
+
+    .outline-item-open > .outline-children {
+        display: block;
+    }
+
+    .typora-export .outline-item {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    .typora-export .outline-item:hover {
+        margin-right: -8px;
+        border-right: 8px solid transparent;
+    }
+
+    .typora-export .outline-expander::before {
+        content: "+";
+        font-family: inherit;
+        top: -1px;
+    }
+
+    .typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before {
+        content: "−";
+    }
+
+    .typora-export-collapse-outline .outline-children {
+        display: none;
+    }
+
+    .typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children {
+        display: block;
+    }
+
+    .typora-export-no-collapse-outline .outline-expander::before {
+        content: "" !important;
+    }
+
+    .typora-export-show-outline .outline-item-active > .outline-item .outline-label {
+        font-weight: 700;
+    }
+
+    .md-inline-math-container mjx-container {
+        zoom: 0.95;
+    }
+
+
+    .CodeMirror {
+        height: auto;
+    }
+
+    .CodeMirror.cm-s-inner {
+        background: inherit;
+    }
+
+    .CodeMirror-scroll {
+        overflow: auto hidden;
+        z-index: 3;
+    }
+
+    .CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .CodeMirror-gutters {
+        border-right: 1px solid rgb(221, 221, 221);
+        background: inherit;
+        white-space: nowrap;
+    }
+
+    .CodeMirror-linenumber {
+        padding: 0px 3px 0px 5px;
+        text-align: right;
+        color: rgb(153, 153, 153);
+    }
+
+    .cm-s-inner .cm-keyword {
+        color: rgb(119, 0, 136);
+    }
+
+    .cm-s-inner .cm-atom, .cm-s-inner.cm-atom {
+        color: rgb(34, 17, 153);
+    }
+
+    .cm-s-inner .cm-number {
+        color: rgb(17, 102, 68);
+    }
+
+    .cm-s-inner .cm-def {
+        color: rgb(0, 0, 255);
+    }
+
+    .cm-s-inner .cm-variable {
+        color: rgb(0, 0, 0);
+    }
+
+    .cm-s-inner .cm-variable-2 {
+        color: rgb(0, 85, 170);
+    }
+
+    .cm-s-inner .cm-variable-3 {
+        color: rgb(0, 136, 85);
+    }
+
+    .cm-s-inner .cm-string {
+        color: rgb(170, 17, 17);
+    }
+
+    .cm-s-inner .cm-property {
+        color: rgb(0, 0, 0);
+    }
+
+    .cm-s-inner .cm-operator {
+        color: rgb(152, 26, 26);
+    }
+
+    .cm-s-inner .cm-comment, .cm-s-inner.cm-comment {
+        color: rgb(170, 85, 0);
+    }
+
+    .cm-s-inner .cm-string-2 {
+        color: rgb(255, 85, 0);
+    }
+
+    .cm-s-inner .cm-meta {
+        color: rgb(85, 85, 85);
+    }
+
+    .cm-s-inner .cm-qualifier {
+        color: rgb(85, 85, 85);
+    }
+
+    .cm-s-inner .cm-builtin {
+        color: rgb(51, 0, 170);
+    }
+
+    .cm-s-inner .cm-bracket {
+        color: rgb(153, 153, 119);
+    }
+
+    .cm-s-inner .cm-tag {
+        color: rgb(17, 119, 0);
+    }
+
+    .cm-s-inner .cm-attribute {
+        color: rgb(0, 0, 204);
+    }
+
+    .cm-s-inner .cm-header, .cm-s-inner.cm-header {
+        color: rgb(0, 0, 255);
+    }
+
+    .cm-s-inner .cm-quote, .cm-s-inner.cm-quote {
+        color: rgb(0, 153, 0);
+    }
+
+    .cm-s-inner .cm-hr, .cm-s-inner.cm-hr {
+        color: rgb(153, 153, 153);
+    }
+
+    .cm-s-inner .cm-link, .cm-s-inner.cm-link {
+        color: rgb(0, 0, 204);
+    }
+
+    .cm-negative {
+        color: rgb(221, 68, 68);
+    }
+
+    .cm-positive {
+        color: rgb(34, 153, 34);
+    }
+
+    .cm-header, .cm-strong {
+        font-weight: 700;
+    }
+
+    .cm-del {
+        text-decoration: line-through;
+    }
+
+    .cm-em {
+        font-style: italic;
+    }
+
+    .cm-link {
+        text-decoration: underline;
+    }
+
+    .cm-error {
+        color: red;
+    }
+
+    .cm-invalidchar {
+        color: red;
+    }
+
+    .cm-constant {
+        color: rgb(38, 139, 210);
+    }
+
+    .cm-defined {
+        color: rgb(181, 137, 0);
+    }
+
+    div.CodeMirror span.CodeMirror-matchingbracket {
+        color: rgb(0, 255, 0);
+    }
+
+    div.CodeMirror span.CodeMirror-nonmatchingbracket {
+        color: rgb(255, 34, 34);
+    }
+
+    .cm-s-inner .CodeMirror-activeline-background {
+        background: inherit;
+    }
+
+    .CodeMirror {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .CodeMirror-scroll {
+        height: 100%;
+        outline: 0px;
+        position: relative;
+        box-sizing: content-box;
+        background: inherit;
+    }
+
+    .CodeMirror-sizer {
+        position: relative;
+    }
+
+    .CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar {
+        position: absolute;
+        z-index: 6;
+        display: none;
+        outline: 0px;
+    }
+
+    .CodeMirror-vscrollbar {
+        right: 0px;
+        top: 0px;
+        overflow: hidden;
+    }
+
+    .CodeMirror-hscrollbar {
+        bottom: 0px;
+        left: 0px;
+        overflow: auto hidden;
+    }
+
+    .CodeMirror-scrollbar-filler {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .CodeMirror-gutter-filler {
+        left: 0px;
+        bottom: 0px;
+    }
+
+    .CodeMirror-gutters {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        padding-bottom: 10px;
+        z-index: 3;
+        overflow-y: hidden;
+    }
+
+    .CodeMirror-gutter {
+        white-space: normal;
+        height: 100%;
+        box-sizing: content-box;
+        padding-bottom: 30px;
+        margin-bottom: -32px;
+        display: inline-block;
+    }
+
+    .CodeMirror-gutter-wrapper {
+        position: absolute;
+        z-index: 4;
+        background: 0px 0px !important;
+        border: none !important;
+    }
+
+    .CodeMirror-gutter-background {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        z-index: 4;
+    }
+
+    .CodeMirror-gutter-elt {
+        position: absolute;
+        cursor: default;
+        z-index: 4;
+    }
+
+    .CodeMirror-lines {
+        cursor: text;
+    }
+
+    .CodeMirror pre {
+        border-radius: 0px;
+        border-width: 0px;
+        background: 0px 0px;
+        font-family: inherit;
+        font-size: inherit;
+        margin: 0px;
+        white-space: pre;
+        overflow-wrap: normal;
+        color: inherit;
+        z-index: 2;
+        position: relative;
+        overflow: visible;
+    }
+
+    .CodeMirror-wrap pre {
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: normal;
+    }
+
+    .CodeMirror-code pre {
+        border-right: 30px solid transparent;
+        width: fit-content;
+    }
+
+    .CodeMirror-wrap .CodeMirror-code pre {
+        border-right: none;
+        width: auto;
+    }
+
+    .CodeMirror-linebackground {
+        position: absolute;
+        inset: 0px;
+        z-index: 0;
+    }
+
+    .CodeMirror-linewidget {
+        position: relative;
+        z-index: 2;
+        overflow: auto;
+    }
+
+    .CodeMirror-wrap .CodeMirror-scroll {
+        overflow-x: hidden;
+    }
+
+    .CodeMirror-measure {
+        position: absolute;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    .CodeMirror-measure pre {
+        position: static;
+    }
+
+    .CodeMirror div.CodeMirror-cursor {
+        position: absolute;
+        visibility: hidden;
+        border-right: none;
+        width: 0px;
+    }
+
+    .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+    }
+
+    .CodeMirror-focused div.CodeMirror-cursor {
+        visibility: inherit;
+    }
+
+    .cm-searching {
+        background: rgba(255, 255, 0, 0.4);
+    }
+
+    span.cm-underlined {
+        text-decoration: underline;
+    }
+
+    span.cm-strikethrough {
+        text-decoration: line-through;
+    }
+
+    .cm-tw-syntaxerror {
+        color: rgb(255, 255, 255);
+        background-color: rgb(153, 0, 0);
+    }
+
+    .cm-tw-deleted {
+        text-decoration: line-through;
+    }
+
+    .cm-tw-header5 {
+        font-weight: 700;
+    }
+
+    .cm-tw-listitem:first-child {
+        padding-left: 10px;
+    }
+
+    .cm-tw-box {
+        border-style: solid;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-color: inherit;
+        border-top-width: 0px !important;
+    }
+
+    .cm-tw-underline {
+        text-decoration: underline;
+    }
+
+    @media print {
+        .CodeMirror div.CodeMirror-cursor {
+            visibility: hidden;
+        }
+    }
+
+
+    :root {
+        --side-bar-bg-color: #fafafa;
+        --control-text-color: #777;
+    }
+
+    @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+    /* open-sans-regular - latin-ext_latin */
+    /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+    html {
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+        font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+        color: rgb(51, 51, 51);
+        line-height: 1.6;
+    }
+
+    #write {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 30px;
+        padding-bottom: 100px;
+    }
+
+    @media only screen and (min-width: 1400px) {
+        #write {
+            max-width: 1024px;
+        }
+    }
+
+    @media only screen and (min-width: 1800px) {
+        #write {
+            max-width: 1200px;
+        }
+    }
+
+    #write > ul:first-child,
+    #write > ol:first-child {
+        margin-top: 30px;
+    }
+
+    a {
+        color: #4183C4;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        position: relative;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        line-height: 1.4;
+        cursor: text;
+    }
+
+    h1:hover a.anchor,
+    h2:hover a.anchor,
+    h3:hover a.anchor,
+    h4:hover a.anchor,
+    h5:hover a.anchor,
+    h6:hover a.anchor {
+        text-decoration: none;
+    }
+
+    h1 tt,
+    h1 code {
+        font-size: inherit;
+    }
+
+    h2 tt,
+    h2 code {
+        font-size: inherit;
+    }
+
+    h3 tt,
+    h3 code {
+        font-size: inherit;
+    }
+
+    h4 tt,
+    h4 code {
+        font-size: inherit;
+    }
+
+    h5 tt,
+    h5 code {
+        font-size: inherit;
+    }
+
+    h6 tt,
+    h6 code {
+        font-size: inherit;
+    }
+
+    h1 {
+        font-size: 2.25em;
+        line-height: 1.2;
+        border-bottom: 1px solid #eee;
+    }
+
+    h2 {
+        font-size: 1.75em;
+        line-height: 1.225;
+        border-bottom: 1px solid #eee;
+    }
+
+    /*@media print {
+		.typora-export h1,
+		.typora-export h2 {
+			border-bottom: none;
+			padding-bottom: initial;
+		}
+
+		.typora-export h1::after,
+		.typora-export h2::after {
+			content: "";
+			display: block;
+			height: 100px;
+			margin-top: -96px;
+			border-top: 1px solid #eee;
+		}
+	}*/
+
+    h3 {
+        font-size: 1.5em;
+        line-height: 1.43;
+    }
+
+    h4 {
+        font-size: 1.25em;
+    }
+
+    h5 {
+        font-size: 1em;
+    }
+
+    h6 {
+        font-size: 1em;
+        color: #777;
+    }
+
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table {
+        margin: 0.8em 0;
+    }
+
+    li > ol,
+    li > ul {
+        margin: 0 0;
+    }
+
+    hr {
+        height: 2px;
+        padding: 0;
+        margin: 16px 0;
+        background-color: #e7e7e7;
+        border: 0 none;
+        overflow: hidden;
+        box-sizing: content-box;
+    }
+
+    li p.first {
+        display: inline-block;
+    }
+
+    ul,
+    ol {
+        padding-left: 30px;
+    }
+
+    ul:first-child,
+    ol:first-child {
+        margin-top: 0;
+    }
+
+    ul:last-child,
+    ol:last-child {
+        margin-bottom: 0;
+    }
+
+    blockquote {
+        border-left: 4px solid #dfe2e5;
+        padding: 0 15px;
+        color: #777777;
+    }
+
+    blockquote blockquote {
+        padding-right: 0;
+    }
+
+    table {
+        padding: 0;
+        word-break: initial;
+    }
+
+    table tr {
+        border: 1px solid #dfe2e5;
+        margin: 0;
+        padding: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #f8f8f8;
+    }
+
+    table th {
+        font-weight: bold;
+        border: 1px solid #dfe2e5;
+        border-bottom: 0;
+        margin: 0;
+        padding: 6px 13px;
+    }
+
+    table td {
+        border: 1px solid #dfe2e5;
+        margin: 0;
+        padding: 6px 13px;
+    }
+
+    table th:first-child,
+    table td:first-child {
+        margin-top: 0;
+    }
+
+    table th:last-child,
+    table td:last-child {
+        margin-bottom: 0;
+    }
+
+    /* 代码块选中颜色，“( )” */
+    .CodeMirror-lines {
+        padding-left: 4px;
+    }
+
+    .code-tooltip {
+        box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+        border-top: 1px solid #eef2f2;
+    }
+
+    .md-fences,
+    code,
+    tt {
+        border: 1px solid #e7eaed;
+        background-color: #f8f8f8;
+        border-radius: 3px;
+        padding: 0;
+        padding: 2px 4px 0px 4px;
+        font-size: 0.9em;
+    }
+
+    /* 代码 */
+    code {
+        color: #ff9822;
+        border: 0px;
+        background-color: #f8f8f8;
+        padding: 0 2px 0 2px;
+    }
+
+    .md-fences {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        padding-top: 8px;
+        padding-bottom: 6px;
+    }
+
+
+    .md-task-list-item > input {
+        margin-left: -1.3em;
+    }
+
+    @media print {
+        html {
+            font-size: 13px;
+        }
+
+        table,
+        pre {
+            page-break-inside: avoid;
+        }
+
+        pre {
+            word-wrap: break-word;
+        }
+    }
+
+    .md-fences {
+        background-color: #f8f8f8;
+    }
+
+    #write pre.md-meta-block {
+        padding: 1rem;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f7f7f7;
+        border: 0;
+        border-radius: 3px;
+        color: #777777;
+        margin-top: 0 !important;
+    }
+
+    .mathjax-block > .code-tooltip {
+        bottom: .375rem;
+    }
+
+    .md-mathjax-midline {
+        background: #fafafa;
+    }
+
+    #write > h3.md-focus:before {
+        left: -1.5625rem;
+        top: .375rem;
+    }
+
+    #write > h4.md-focus:before {
+        left: -1.5625rem;
+        top: .285714286rem;
+    }
+
+    #write > h5.md-focus:before {
+        left: -1.5625rem;
+        top: .285714286rem;
+    }
+
+    #write > h6.md-focus:before {
+        left: -1.5625rem;
+        top: .285714286rem;
+    }
+
+    .md-image > .md-meta {
+        /*border: 1px solid #ddd;*/
+        border-radius: 3px;
+        padding: 2px 0px 0px 4px;
+        font-size: 0.9em;
+        color: inherit;
+    }
+
+    .md-tag {
+        color: #a7a7a7;
+        opacity: 1;
+    }
+
+    /* 目录 */
+    .md-toc {
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .sidebar-tabs {
+        border-bottom: none;
+    }
+
+    #typora-quick-open {
+        border: 1px solid #ddd;
+        background-color: #f8f8f8;
+    }
+
+    #typora-quick-open-item {
+        background-color: #FAFAFA;
+        border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    /** focus mode 另一个模式*/
+    .on-focus-mode blockquote {
+        border-left-color: rgba(85, 85, 85, 0.12);
+    }
+
+    header, .context-menu, .megamenu-content, footer {
+        font-family: "Segoe UI", "Arial", sans-serif;
+    }
+
+    .file-node-content:hover .file-node-icon,
+    .file-node-content:hover .file-node-open-state {
+        visibility: visible;
+    }
+
+    .mac-seamless-mode #typora-sidebar {
+        background-color: #fafafa;
+        background-color: var(--side-bar-bg-color);
+    }
+
+    .md-lang {
+        color: #b4654d;
+    }
+
+    /*.html-for-mac {
+		--item-hover-bg-color: #E6F0FE;
+	}*/
+
+    #md-notification .btn {
+        border: 0;
+    }
+
+    .dropdown-menu .divider {
+        border-color: #e5e5e5;
+        opacity: 0.4;
+    }
+
+    .ty-preferences .window-content {
+        background-color: #fafafa;
+    }
+
+    .ty-preferences .nav-group-item.active {
+        color: white;
+        background: #999;
+    }
+
+    .menu-item-container a.menu-style-btn {
+        background-color: #f5f8fa;
+        background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+    }
+
+
+	</style>
+	<title>SpringBoot</title>
+</head>
+<body class='typora-export os-windows'>
+<div class='typora-export-content'>
+	<div id='write' class=''>
+		<div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem"
+																					 class="md-toc-item md-toc-h1"
+																					 data-ref="n2"><a
+				class="md-toc-inner" href="#springboot3">SpringBoot3</a></span><span role="listitem"
+																					 class="md-toc-item md-toc-h2"
+																					 data-ref="n3"><a
+				class="md-toc-inner" href="#一-springboot入门">一、 SpringBoot入门</a></span><span role="listitem"
+																								  class="md-toc-item md-toc-h3"
+																								  data-ref="n4"><a
+				class="md-toc-inner" href="#1-理解springboot">1. 理解SpringBoot</a></span><span role="listitem"
+																								class="md-toc-item md-toc-h3"
+																								data-ref="n6"><a
+				class="md-toc-inner" href="#2-快速开始">2. 快速开始</a></span><span role="listitem"
+																					class="md-toc-item md-toc-h3"
+																					data-ref="n31"><a
+				class="md-toc-inner" href="#3-springboot的特点">3. SpringBoot的特点</a></span><span role="listitem"
+																									class="md-toc-item md-toc-h3"
+																									data-ref="n45"><a
+				class="md-toc-inner" href="#4-分析springboot">4. 分析SpringBoot</a></span><span role="listitem"
+																								class="md-toc-item md-toc-h4"
+																								data-ref="n46"><a
+				class="md-toc-inner" href="#1-依赖管理机制">1. 依赖管理机制</a></span><span role="listitem"
+																							class="md-toc-item md-toc-h4"
+																							data-ref="n52"><a
+				class="md-toc-inner" href="#2-自动装配机制">2. 自动装配机制</a></span><span role="listitem"
+																							class="md-toc-item md-toc-h3"
+																							data-ref="n114"><a
+				class="md-toc-inner" href="#4-常用注解">4. 常用注解</a></span><span role="listitem"
+																					class="md-toc-item md-toc-h4"
+																					data-ref="n115"><a
+				class="md-toc-inner" href="#1-组件注解">1) 组件注解</a></span><span role="listitem"
+																					class="md-toc-item md-toc-h4"
+																					data-ref="n135"><a
+				class="md-toc-inner" href="#2-条件注解-conditionalonxxx">2) 条件注解 @ConditionalOnXxx</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n163"><a class="md-toc-inner"
+																				 href="#3-属性绑定">3) 属性绑定</a></span><span
+				role="listitem" class="md-toc-item md-toc-h3" data-ref="n177"><a class="md-toc-inner"
+																				 href="#5-配置文件">5. 配置文件</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n179"><a class="md-toc-inner"
+																				 href="#1-properties">1) properties</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n181"><a class="md-toc-inner" href="#2-yaml">2) yaml</a></span><span
+				role="listitem" class="md-toc-item md-toc-h3" data-ref="n208"><a class="md-toc-inner"
+																				 href="#6-使用日志">6. 使用日志</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n211"><a class="md-toc-inner"
+																				 href="#1-日志格式">1) 日志格式</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n219"><a class="md-toc-inner"
+																				 href="#2-日志记录">2) 日志记录</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n225"><a class="md-toc-inner"
+																				 href="#3-日志级别">3) 日志级别</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n243"><a class="md-toc-inner"
+																				 href="#4-日志分组">4) 日志分组</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n271"><a class="md-toc-inner"
+																				 href="#5-日志输出">5) 日志输出</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n299"><a class="md-toc-inner"
+																				 href="#6-文件归档与滚动切割">6) 文件归档与滚动切割</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n319"><a class="md-toc-inner"
+																				 href="#7-自定义配置">7) 自定义配置</a></span><span
+				role="listitem" class="md-toc-item md-toc-h4" data-ref="n333"><a class="md-toc-inner"
+																				 href="#8-切换日志组合">8) 切换日志组合</a></span><span
+				role="listitem" class="md-toc-item md-toc-h2" data-ref="n336"><a class="md-toc-inner" href="#二web开发">二、Web开发</a></span><span
+				role="listitem" class="md-toc-item md-toc-h3" data-ref="n337"><a class="md-toc-inner" href="#1-web配置">1. web配置</a></span>
+		</p></div>
+		<h1 id='springboot3'><span>SpringBoot3</span></h1>
+		<h2 id='一-springboot入门'><span>一、 SpringBoot入门</span></h2>
+		<h3 id='1-理解springboot'><span>1. 理解SpringBoot</span></h3>
+		<p>&nbsp;</p>
+		<h3 id='2-快速开始'><span>2. 快速开始</span></h3>
+		<ul>
+			<li><p><span>springboot项目必须继承自 spring-boot-starter-parent</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="xml"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="xml"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div
+						class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div
+						style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"
+																		   style=""><div class="CodeMirror-activeline"
+																						 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">parent</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre></div><pre class=" CodeMirror-line "
+																					 role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span
+						class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span
+						class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span>spring-boot-starter-parent<span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">artifactId</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span
+						class="cm-tag">version</span><span class="cm-tag cm-bracket">&gt;</span>3.1.2<span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">version</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span
+						class="cm-tag">relativePath</span><span class="cm-tag cm-bracket">/&gt;</span> <span
+						class="cm-comment">&lt;!-- lookup parent from repository 从远程仓库继承 --&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">parent</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 134px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 134px;"></div></div></div></pre>
+			</li>
+			<li><p><span>导入所需的场景启动器</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="xml"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="xml"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																				  style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dependencies</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre></div><pre class=" CodeMirror-line "
+																					 role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">&lt;!-- web开发的场景启动器 --&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dependency</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span
+						class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span class="cm-tag cm-bracket">&lt;/</span><span
+						class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+						class="cm-tag cm-bracket">&gt;</span>spring-boot-starter-web<span class="cm-tag cm-bracket">&lt;/</span><span
+						class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dependency</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dependencies</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 157px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 157px;"></div></div></div></pre>
+				<ul>
+					<li><span>官方提供的场景启动器 </span><code>spring-boot-starter-*</code></li>
+					<li><span>第三方提供的场景启动器 </span><code>*-spring-boot-starter</code></li>
+				</ul>
+			</li>
+			<li><p><span>主程序</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																				  style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 启动SpringBoot项目的主入口程序</span></span></pre></div><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-meta">@SpringBootApplication</span></span></pre><pre class=" CodeMirror-line "
+																					   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span
+						class="cm-keyword">class</span> <span class="cm-def">MainApplication</span> {</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+						class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span
+						class="cm-variable-3">void</span> <span class="cm-variable">main</span>(<span
+						class="cm-variable-3">String</span>[] <span class="cm-variable">args</span>) {</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-variable">SpringApplication</span>.<span class="cm-variable">run</span>(<span
+						class="cm-variable">MainApplication</span>.<span class="cm-keyword">class</span>, <span
+						class="cm-variable">args</span>);</span></pre><pre class=" CodeMirror-line "
+																		   role="presentation"><span role="presentation"
+																									 style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 157px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 157px;"></div></div></div></pre>
+			</li>
+			<li><p><span>业务</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																				  style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-meta">@RestController</span></span></pre></div><pre class=" CodeMirror-line "
+																					  role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span
+						class="cm-keyword">class</span> <span class="cm-def">HelloController</span> {</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+						class="cm-meta">@GetMapping</span>(<span class="cm-string">"/hello"</span>)</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+						class="cm-keyword">public</span> <span class="cm-variable-3">String</span> <span
+						class="cm-variable">hello</span>() {</span></pre><pre class=" CodeMirror-line "
+																			  role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-keyword">return</span> <span
+						class="cm-string">"Hello, Spring Boot3!"</span>;</span></pre><pre class=" CodeMirror-line "
+																						  role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 157px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 157px;"></div></div></div></pre>
+			</li>
+			<li><p><span>打包</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="xml"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="xml"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																				  style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">&lt;!-- SpringBoot应用打包插件 --&gt;</span></span></pre></div><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">build</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span
+						class="cm-tag">plugins</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">plugin</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation"
+						style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span
+						class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span class="cm-tag cm-bracket">&lt;/</span><span
+						class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+						class="cm-tag cm-bracket">&gt;</span>spring-boot-maven-plugin<span class="cm-tag cm-bracket">&lt;/</span><span
+						class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">plugin</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																			   role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span
+						class="cm-tag">plugins</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">build</span><span
+						class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 202px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 202px;"></div></div></div></pre>
+				<ul>
+					<li><span>使用命令 </span><code>java -jar demo.jar</code><span> 启动服务器，只需要java环境</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id='3-springboot的特点'><span>3. SpringBoot的特点</span></h3>
+		<ul>
+			<li><span>简化整合：简化导包</span></li>
+			<li><span>简化开发：直接写逻辑代码</span></li>
+			<li><span>简化配置：集中管理，使用properties或yaml</span></li>
+			<li><span>简化部署</span></li>
+			<li><span>简化运维</span></li>
+			<li><span>...</span></li>
+		</ul>
+		<h3 id='4-分析springboot'><span>4. 分析SpringBoot</span></h3><h4 id='1-依赖管理机制'>
+		<span>1. 依赖管理机制</span></h4>
+		<ul>
+			<li><p><span>pom的继承关系：</span></p>
+				<p><span>spring-boot-dependencies 中的 properties标签定义了各个包的版本号，以及包的依赖</span></p>
+				<p><img src="C:\Users\28080\AppData\Roaming\Typora\typora-user-images\image-20230727210420042.png"
+						referrerpolicy="no-referrer" alt="image-20230727210420042"></p></li>
+		</ul>
+		<h4 id='2-自动装配机制'><span>2. 自动装配机制</span></h4>
+		<ul>
+			<li><p><span>主程序类：</span><code>@SpringBootApplication</code><span>标注的类</span></p>
+				<ul>
+					<li><p>
+						<code>@SpringBootConfiguration</code><span> </span><span>	</span><span>SpringBoot的配置注解</span>
+					</p>
+						<ul>
+							<li><code>@Configuration</code></li>
+						</ul>
+					</li>
+					<li><p><code>@EnableAutoConfiguration</code><span>     开启自动配置</span></p></li>
+					<li><p>
+						<code>@ComponentScan</code><span>                          启动自动扫描组件，默认为主程序类所在包及其子包</span>
+					</p></li>
+				</ul>
+				<p><code>@SpringBootApplication(scanBasePackages =
+					&quot;com.lingfenglong&quot;)</code><span>自定义扫描路径</span></p></li>
+			<li><p><span>配置</span></p>
+				<ul>
+					<li><span>SpringBoot 提供了默认配置</span></li>
+					<li><span>使用properties或yaml来自定义配置</span></li>
+				</ul>
+			</li>
+			<li><p><span>按需加载自动配置</span></p></li>
+			<li>
+				<ul>
+					<li><span>导入场景</span><code>spring-boot-starter-web</code></li>
+					<li>
+						<span>场景启动器除了会导入相关功能依赖，导入一个</span><code>spring-boot-starter</code><span>，是所有</span><code>starter</code><span>的</span><code>starter</code><span>，基础核心starter</span>
+					</li>
+					<li><code>spring-boot-starter</code><span>导入了一个包 </span><code>spring-boot-autoconfigure</code><span>。包里面都是各种场景的</span><code>AutoConfiguration</code><strong><span>自动配置类</span></strong>
+					</li>
+					<li>
+						<span>虽然全场景的自动配置都在 </span><code>spring-boot-autoconfigure</code><span>这个包，但是不是全都开启的。</span>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li>
+						<ul>
+							<li><span>导入哪个场景就开启哪个自动配置</span></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><p><strong><span>核心流程总结</span></strong></p>
+				<ol start=''>
+					<li><p>
+						<span>导入场景starter如</span><code>spring-boot-starter-web</code><span>就会自动导入</span><code>spring-boot-starter</code>
+					</p></li>
+					<li><p>
+						<code>spring-boot-starter</code><span>中引入类</span><code>spring-boot-autoconfigure</code><span>依赖</span>
+					</p></li>
+					<li><p><code>spring-boot-autoconfigure</code><span>这个jar包里面</span><code>META-INF/org.springframework.boot.autoconfigure</code><span>下有相关的自动配置类</span>
+					</p></li>
+					<li><p><span>配置类的名为</span><code>*AutoConfiguration</code><span>，它使用了注解</span><code>@EnableConfigurationProperties(*Properties.class)</code>
+					</p>
+						<ul>
+							<li><span>这说明</span><strong><span>配置类与属性类</span></strong><span>关联</span></li>
+						</ul>
+					</li>
+					<li><p><span>属相类使用了注解</span><code>ConditionalOnProperty(prefix = &quot;...&quot;)</code></p>
+						<ul>
+							<li><span>这说明</span><strong><span>属性类与属性文件</span></strong><span>关联</span></li>
+						</ul>
+					</li>
+					<li><p>
+						<span>引入stater场景，SpringBoot会自动配置为默认的配置。当我们修改配置文件时，会覆盖掉默认的配置。</span>
+					</p></li>
+				</ol>
+				<p><img src="C:\Users\28080\AppData\Roaming\Typora\typora-user-images\image-20230728111035406.png"
+						referrerpolicy="no-referrer" alt="image-20230728111035406"></p></li>
+		</ul>
+		<h3 id='4-常用注解'><span>4. 常用注解</span></h3><h4 id='1-组件注解'><span>1) 组件注解</span></h4>
+		<ul>
+			<li><p><strong><span>@Configuration</span></strong></p></li>
+			<li><p><strong><span>@SpringBootConfiguration</span></strong></p>
+				<ul>
+					<li><span>SpringBoot的配置</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@Bean</span></strong><span>、</span><strong><span>@Scope</span></strong></p></li>
+			<li><p><strong><span>@Controller、 @Service、@Repository、@Component</span></strong></p></li>
+			<li><p><strong><span>@Import</span></strong></p>
+				<ul>
+					<li><span>引入一个类的实例，让它加入到IoC容器中</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@ComponentScan</span></strong></p></li>
+		</ul>
+		<h4 id='2-条件注解-conditionalonxxx'><span>2) 条件注解 @ConditionalOnXxx</span></h4>
+		<ul>
+			<li><p><strong><span>@ConditionalOnClass</span></strong></p>
+				<ul>
+					<li><span>如果类路径中存在这个类，则触发指定行为</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@ConditionalOnMissingClass</span></strong></p>
+				<ul>
+					<li><span>如果类路径中不存在这个类，则触发指定行为</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@ConditionalOnBean</span></strong></p>
+				<ul>
+					<li><span>如果容器中存在这个Bean（组件），则触发指定行为</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@ConditionalOnMissingBean</span></strong></p>
+				<ul>
+					<li><span>如果容器中不存在这个Bean（组件），则触发指定行为</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@ConditionalOnBean(value=组件类型，name=组件名字)</span></strong></p>
+				<ul>
+					<li><span>判断容器中是否有这个类型的组件，并且名字是指定的值</span></li>
+				</ul>
+			</li>
+		</ul>
+		<p><img src="C:\Users\28080\AppData\Roaming\Typora\typora-user-images\image-20230728111833683.png"
+				referrerpolicy="no-referrer" alt="image-20230728111833683"></p><h4 id='3-属性绑定'>
+		<span>3) 属性绑定</span></h4>
+		<ul>
+			<li><p><strong><span>@ConfigurationProperties</span></strong></p>
+				<ul>
+					<li><span>声明组件的属性和配置文件哪些前缀开始项进行绑定</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>@EnableConfigurationProperties</span></strong></p>
+				<ul>
+					<li><span>快速注册注解</span></li>
+					<li><span>SpringBoot默认只扫描自己主程序所在的包。如果导入第三方包，即使组件上标注了 @Component、@ConfigurationProperties 注解，也没用。因为组件都扫描不进来，此时使用这个注解就可以快速进行属性绑定并把组件注册进容器</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id='5-配置文件'><span>5. 配置文件</span></h3>
+		<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"
+			 style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap"
+											   lang="java"><div
+				style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+				autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+				style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+				class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler"
+																					 cm-not-content="true"></div><div
+				class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer"
+															 style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+				style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+				role="presentation" style="position: relative; outline: none;"><div
+				class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div
+				style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div
+				class="CodeMirror-activeline" style="position: relative;"><div
+				class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+				class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-meta">@Component</span></span></pre></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-meta">@ConfigurationProperties</span>(<span
+				class="cm-variable">prefix</span> <span class="cm-operator">=</span> <span
+				class="cm-string">"person"</span>) <span
+				class="cm-comment">//和配置文件person前缀的所有配置进行绑定</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-meta">@Data</span> <span
+				class="cm-comment">//自动生成JavaBean属性的getter/setter</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-comment">//@NoArgsConstructor //自动生成无参构造器</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-comment">//@AllArgsConstructor //自动生成全参构造器</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span
+				class="cm-def">Person</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">private</span> <span
+				class="cm-variable-3">String</span> <span class="cm-variable">name</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">Integer</span> <span class="cm-variable">age</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">Date</span> <span class="cm-variable">birthDay</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">Boolean</span> <span class="cm-variable">like</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">Child</span> <span
+				class="cm-variable">child</span>; <span class="cm-comment">//嵌套对象</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">List</span><span
+				class="cm-operator">&lt;</span><span class="cm-variable">Dog</span><span class="cm-operator">&gt;</span> <span
+				class="cm-variable">dogs</span>; <span class="cm-comment">//数组（里面是对象）</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">Map</span><span
+				class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>,<span
+				class="cm-variable">Cat</span><span class="cm-operator">&gt;</span> <span
+				class="cm-variable">cats</span>; <span class="cm-comment">//表示Map</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;">}</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span cm-text=""
+																										cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			 style="padding-right: 0.1px;"><span
+				class="cm-meta">@Data</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span
+				class="cm-keyword">class</span> <span class="cm-def">Dog</span> {</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">String</span> <span class="cm-variable">name</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">Integer</span> <span class="cm-variable">age</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;">}</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span cm-text=""
+																										cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			 style="padding-right: 0.1px;"><span
+				class="cm-meta">@Data</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span
+				class="cm-keyword">class</span> <span class="cm-def">Child</span> {</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">String</span> <span class="cm-variable">name</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">Integer</span> <span class="cm-variable">age</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">Date</span> <span class="cm-variable">birthDay</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable">List</span><span
+				class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span
+				class="cm-operator">&gt;</span> <span class="cm-variable">text</span>; <span
+				class="cm-comment">//数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line "
+																					 role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			 style="padding-right: 0.1px;"><span
+				class="cm-meta">@Data</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span
+				class="cm-keyword">class</span> <span class="cm-def">Cat</span> {</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">String</span> <span class="cm-variable">name</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-keyword">private</span> <span class="cm-variable-3">Integer</span> <span class="cm-variable">age</span>;</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div
+				style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 762px;"></div><div
+				class="CodeMirror-gutters" style="display: none; height: 762px;"></div></div></div></pre>
+		<h4 id='1-properties'><span>1) properties</span></h4>
+		<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"
+			 style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap"
+											   lang="properties"><div
+				style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+				autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+				style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+				class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler"
+																					 cm-not-content="true"></div><div
+				class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer"
+															 style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+				style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+				role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+				class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+				class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																		  style="position: relative;"><div
+				class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+				class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-def">person.name</span>=<span
+				class="cm-quote">张三</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.age</span>=<span
+				class="cm-quote">18</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.birthDay</span>=<span
+				class="cm-quote">2010/10/12 12</span>:<span class="cm-quote">12</span>:<span class="cm-quote">12</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-def">person.like</span>=<span
+				class="cm-quote">true</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.child.name</span>=<span
+				class="cm-quote">李四</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.child.age</span>=<span
+				class="cm-quote">12</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span
+				class="cm-def">person.child.birthDay</span>=<span class="cm-quote">2018/10/12</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-def">person.child.text[0]</span>=<span
+				class="cm-quote">abc</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.child.text[1]</span>=<span
+				class="cm-quote">def</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.dogs[0].name</span>=<span
+				class="cm-quote">小黑</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.dogs[0].age</span>=<span
+				class="cm-quote">3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.dogs[1].name</span>=<span
+				class="cm-quote">小白</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.dogs[1].age</span>=<span
+				class="cm-quote">2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.cats.c1.name</span>=<span
+				class="cm-quote">小蓝</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.cats.c1.age</span>=<span
+				class="cm-quote">3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.cats.c2.name</span>=<span
+				class="cm-quote">小灰</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-def">person.cats.c2.age</span>=<span
+				class="cm-quote">2s</span></span></pre></div></div></div></div></div><div
+				style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 381px;"></div><div
+				class="CodeMirror-gutters" style="display: none; height: 381px;"></div></div></div></pre>
+		<h4 id='2-yaml'><span>2) yaml</span></h4>
+		<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml"
+			 style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap"
+											   lang="yaml"><div
+				style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+				autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+				style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+				class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler"
+																					 cm-not-content="true"></div><div
+				class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer"
+															 style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+				style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+				role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+				class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+				class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																		  style="position: relative;"><div
+				class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+				class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-atom">person</span><span
+				class="cm-meta">:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  name</span><span
+				class="cm-meta">: </span>张三</span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  age</span><span
+				class="cm-meta">: </span><span class="cm-number">18</span></span></pre><pre class=" CodeMirror-line "
+																							role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  birthDay</span><span
+				class="cm-meta">: </span>2010/10/10 12<span class="cm-meta">:</span>12<span
+				class="cm-meta">:</span><span class="cm-number">12</span></span></pre><pre class=" CodeMirror-line "
+																						   role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  like</span><span
+				class="cm-meta">: </span><span class="cm-keyword">true</span></span></pre><pre class=" CodeMirror-line "
+																							   role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  child</span><span
+				class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  name</span><span
+				class="cm-meta">: </span>李四</span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  age</span><span
+				class="cm-meta">: </span><span class="cm-number">20</span></span></pre><pre class=" CodeMirror-line "
+																							role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  birthDay</span><span
+				class="cm-meta">: </span>2018/10/10</span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  text</span><span
+				class="cm-meta">: [</span><span class="cm-string">"abc"</span><span class="cm-meta">,</span><span
+				class="cm-string">"def"</span><span class="cm-meta">]</span></span></pre><pre class=" CodeMirror-line "
+																							  role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  dogs</span><span
+				class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp;  - </span><span
+				class="cm-atom">name</span><span class="cm-meta">: </span>小黑</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp; &nbsp;  age</span><span
+				class="cm-meta">: </span><span class="cm-number">3</span></span></pre><pre class=" CodeMirror-line "
+																						   role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-meta"> &nbsp;  - </span><span
+				class="cm-atom">name</span><span class="cm-meta">: </span>小白</span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp; &nbsp;  age</span><span
+				class="cm-meta">: </span><span class="cm-number">2</span></span></pre><pre class=" CodeMirror-line "
+																						   role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  cats</span><span
+				class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  c1</span><span
+				class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp; &nbsp;  name</span><span
+				class="cm-meta">: </span>小蓝</span></pre><pre class=" CodeMirror-line " role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp; &nbsp;  age</span><span
+				class="cm-meta">: </span><span class="cm-number">3</span></span></pre><pre class=" CodeMirror-line "
+																						   role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  c2</span><span
+				class="cm-meta">: {</span>name<span class="cm-meta">: </span>小绿<span class="cm-meta">,</span><span
+				class="cm-atom">age</span><span class="cm-meta">: </span><span class="cm-number">2</span><span
+				class="cm-meta">}</span> <span
+				class="cm-comment">#对象也可用{}表示</span></span></pre></div></div></div></div></div><div
+				style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 448px;"></div><div
+				class="CodeMirror-gutters" style="display: none; height: 448px;"></div></div></div></pre>
+		<ul>
+			<li><p><span>birthDay 推荐写为 birth-day</span></p></li>
+			<li><p><strong><span>文本</span></strong><span>：</span></p></li>
+			<li>
+				<ul>
+					<li><strong><span>单引号</span></strong><span>不会转义【\n 则为普通字符串显示】</span></li>
+					<li>
+						<strong><span>双引号</span></strong><span>会转义【\n会显示为</span><strong><span>换行符</span></strong><span>】</span>
+					</li>
+				</ul>
+			</li>
+			<li><p><strong><span>大文本</span></strong></p></li>
+			<li>
+				<ul>
+					<li>
+						<code>|</code><span>开头，大文本写在下层，</span><strong><span>保留文本格式</span></strong><span>，</span><strong><span>换行符正确显示</span></strong>
+					</li>
+					<li><code>&gt;</code><span>开头，大文本写在下层，折叠换行符</span></li>
+				</ul>
+			</li>
+			<li><p><strong><span>多文档合并</span></strong></p></li>
+			<li>
+				<ul>
+					<li>
+						<span>使用</span><code>---</code><span>可以把多个yaml文档合并在一个文档中，每个文档区依然认为内容独立</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id='6-使用日志'><span>6. 使用日志</span></h3>
+		<p><img src="C:\Users\28080\AppData\Roaming\Typora\typora-user-images\image-20230728113015587.png"
+				referrerpolicy="no-referrer" alt="image-20230728113015587"></p>
+		<p><strong><span>感兴趣日志框架关系与起源可参考</span></strong><span>：</span><a
+				href='https://www.bilibili.com/video/BV1gW411W76m' target='_blank' class='url'>https://www.bilibili.com/video/BV1gW411W76m</a><span> 视频 21~27集</span>
+		</p><h4 id='1-日志格式'><span>1) 日志格式</span></h4>
+		<ul>
+			<li><p><span>默认</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="properties"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.19971px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-def">logging.pattern.console</span>=<span class="cm-quote">%clr(%d{${LOG_DATEFORMAT_PATTERN</span>:<span
+						class="cm-quote">-yyyy-MM-dd'T'HH</span>:<span class="cm-quote">mm</span>:<span
+						class="cm-quote">ss.SSSXXX}}){faint} %clr(${LOG_LEVEL_PATTERN</span>:<span class="cm-quote">-%5p}) %clr(${PID</span>:<span
+						class="cm-quote">- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(</span>:<span
+						class="cm-quote">){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD</span>:<span class="cm-quote">-%wEx}</span></span></pre></div></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 67px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 67px;"></div></div></div></pre>
+			</li>
+			<li><p><span>自定义</span></p>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="properties"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-def">logging.pattern.console</span>=<span
+						class="cm-quote">'%d{yyyy-MM-dd HH</span>:<span class="cm-quote">mm</span>:<span
+						class="cm-quote">ss.SSS} %-5level [%thread] %logger{15} </span>===<span class="cm-quote">&gt; %msg%n'</span></span></pre></div><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-def">logging.pattern.dateformat</span>=<span
+						class="cm-quote">yyyy/MM/dd HH</span>:<span class="cm-quote">mm</span>:<span class="cm-quote">ss.SSS</span></span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 45px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 45px;"></div></div></div></pre>
+			</li>
+		</ul>
+		<h4 id='2-日志记录'><span>2) 日志记录</span></h4>
+		<ul>
+			<li>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">Logger</span> <span
+						class="cm-variable">logger</span> <span class="cm-operator">=</span> <span class="cm-variable">LoggerFactory</span>.<span
+						class="cm-variable">getLogger</span>(<span class="cm-variable">getClass</span>());</span></pre></div></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 22px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre>
+			</li>
+			<li>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java "><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java "><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-meta">@slf4j</span></span></pre></div><pre class=" CodeMirror-line "
+																			 role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">log</span>.<span
+						class="cm-variable">info</span>(<span class="cm-string">"..."</span>);</span></pre><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-variable">log</span>.<span class="cm-variable">info</span>(<span class="cm-string">"ab{}{}e"</span>, <span
+						class="cm-string">"c"</span>, <span
+						class="cm-string">"d"</span>);</span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 67px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 67px;"></div></div></div></pre>
+			</li>
+		</ul>
+		<h4 id='3-日志级别'><span>3) 日志级别</span></h4>
+		<ul>
+			<li><span>ALL：打印所有日志</span></li>
+			<li><span>TRACE：追踪框架详细流程日志，一般不使用</span></li>
+			<li><span>DEBUG：开发调试细节日志</span></li>
+			<li><strong><span>INFO：关键、感兴趣信息日志 （默认级别）</span></strong><span> </span></li>
+			<li><span>WARN：警告但不是错误的信息日志，比如：版本过时</span></li>
+			<li><span>ERROR：业务错误日志，比如出现各种异常</span></li>
+			<li><span>FATAL：致命错误日志，比如jvm系统崩溃</span></li>
+			<li><span>OFF：关闭所有日志记录</span></li>
+		</ul>
+		<h4 id='4-日志分组'><span>4) 日志分组</span></h4>
+		<ul>
+			<li>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="properties"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span
+						class="cm-def">logging.group.tomcat</span>=<span class="cm-quote">org.apache.catalina,org.apache.coyote,org.apache.tomcat</span></span></pre></div><pre
+						class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			style="padding-right: 0.1px;"><span
+						class="cm-def">logging.level.tomcat</span>=<span
+						class="cm-quote">trace</span></span></pre></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 45px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 45px;"></div></div></div></pre>
+			</li>
+			<li><p><span>SpringBoot预定义的两个分组</span></p>
+				<ul>
+					<li><p><span>web</span></p>
+						<ul>
+							<li><span>org.springframework.core.codec, org.springframework.http</span></li>
+							<li><span>org.springframework.web</span></li>
+							<li><span>org.springframework.boot.actuate.endpoint.web</span></li>
+							<li><span>org.springframework.boot.web.servlet.ServletContextInitializerBeans</span></li>
+						</ul>
+					</li>
+					<li><p><span>sql</span></p>
+						<ul>
+							<li><span>org.springframework.jdbc.core</span></li>
+							<li><span>org.hibernate.SQL</span></li>
+							<li><span>org.jooq.tools.LoggerListener</span></li>
+						</ul>
+					</li>
+				</ul>
+				<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"><div
+						class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="properties"><div
+						style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+						autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+						style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+						class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div
+						class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll"
+																						  tabindex="-1"><div
+						class="CodeMirror-sizer"
+						style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+						style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+						role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+						class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+						class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																		 style="position: relative;"><div
+						class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+						class="CodeMirror-gutter-background CodeMirror-activeline-gutter"
+						style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span
+						role="presentation" style="padding-right: 0.1px;"><span class="cm-def">logging.level.sql</span>=<span
+						class="cm-quote">debug</span></span></pre></div></div></div></div></div></div><div
+						style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 22px;"></div><div
+						class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre>
+			</li>
+		</ul>
+		<h4 id='5-日志输出'><span>5) 日志输出</span></h4>
+		<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="properties"><div
+				class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="properties"><div
+				style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+				autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+				style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+				class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler"
+																					 cm-not-content="true"></div><div
+				class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer"
+															 style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+				style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+				role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+				class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+				class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline"
+																 style="position: relative;"><div
+				class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+				class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span class="cm-def">logging.file.name</span>=<span
+				class="cm-quote">D</span>:<span
+				class="cm-quote">/demolog/</span></span></pre></div></div></div></div></div></div><div
+				style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 22px;"></div><div
+				class="CodeMirror-gutters" style="display: none; height: 22px;"></div></div></div></pre>
+		<figure>
+			<table>
+				<thead>
+				<tr>
+					<th><span>logging.file.name</span></th>
+					<th><span>logging.file.path</span></th>
+					<th><span>示例</span></th>
+					<th><span>效果</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><span>未指定</span></td>
+					<td><span>未指定</span></td>
+					<td>&nbsp;</td>
+					<td><span>仅控制台输出</span></td>
+				</tr>
+				<tr>
+					<td><strong><span>指定</span></strong></td>
+					<td><span>未指定</span></td>
+					<td><span>my.log</span></td>
+					<td><span>写入指定文件。可以加路径</span></td>
+				</tr>
+				<tr>
+					<td><span>未指定</span></td>
+					<td><strong><span>指定</span></strong></td>
+					<td><span>/var/log</span></td>
+					<td><span>写入指定目录，文件名为spring.log</span></td>
+				</tr>
+				<tr>
+					<td><strong><span>指定</span></strong></td>
+					<td><strong><span>指定</span></strong></td>
+					<td>&nbsp;</td>
+					<td><span>以logging.file.name为准</span></td>
+				</tr>
+				</tbody>
+			</table>
+		</figure>
+		<h4 id='6-文件归档与滚动切割'><span>6) 文件归档与滚动切割</span></h4>
+		<figure>
+			<table>
+				<thead>
+				<tr>
+					<th><span>条目 logging.logback.rollingpolicy.</span></th>
+					<th><span>描述</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><span>file-name-pattern</span></td>
+					<td><span>日志存档的文件名格式（默认值：${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz）</span></td>
+				</tr>
+				<tr>
+					<td><span>clean-history-on-start</span></td>
+					<td><span>应用启动时是否清除以前存档（默认值：false）</span></td>
+				</tr>
+				<tr>
+					<td><span>max-file-size</span></td>
+					<td><span>存档前，每个日志文件的最大大小（默认值：10MB）</span></td>
+				</tr>
+				<tr>
+					<td><span>total-size-cap</span></td>
+					<td>
+						<span>日志文件被删除之前，可以容纳的最大大小（默认值：0B）。设置1GB则磁盘存储超过 1GB 日志后就会删除旧日志文件</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>max-history</span></td>
+					<td><span>日志文件保存的最大天数(默认值：7)</span></td>
+				</tr>
+				</tbody>
+			</table>
+		</figure>
+		<h4 id='7-自定义配置'><span>7) 自定义配置</span></h4>
+		<figure>
+			<table>
+				<thead>
+				<tr>
+					<th><span>日志系统</span></th>
+					<th><span>自定义</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><span>Logback</span></td>
+					<td><span>logback-spring.xml, logback-spring.groovy, logback.xml, or logback.groovy</span></td>
+				</tr>
+				<tr>
+					<td><span>Log4j2</span></td>
+					<td><span>log4j2-spring.xml or log4j2.xml</span></td>
+				</tr>
+				<tr>
+					<td><span>JDK (Java Util Logging)</span></td>
+					<td><span>logging.properties</span></td>
+				</tr>
+				</tbody>
+			</table>
+		</figure>
+		<h4 id='8-切换日志组合'><span>8) 切换日志组合</span></h4>
+		<pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="xml"
+			 style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap"
+											   lang="xml"><div
+				style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.2px; left: 8px;"><textarea
+				autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"
+				style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div
+				class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler"
+																					 cm-not-content="true"></div><div
+				class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer"
+															 style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div
+				style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div
+				role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div
+				class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div
+				class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline"
+																		  style="position: relative;"><div
+				class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div
+				class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-comment">&lt;!-- 引入web场景 --&gt;</span></span></pre></div><pre class=" CodeMirror-line "
+																							role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span
+				class="cm-tag">dependency</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span>spring-boot-starter-web<span class="cm-tag cm-bracket">&lt;/</span><span
+				class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dependency</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"><span
+				cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			 style="padding-right: 0.1px;"><span
+				class="cm-comment">&lt;!-- 继承父pom的spring-boot-starter --&gt;</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation"
+																	style="padding-right: 0.1px;"><span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">dependency</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span>spring-boot-starter<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">exclusions</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+				class="cm-comment">&lt;!-- 排除父pom中的spring-boot-starter-logging依赖 --&gt;</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">exclusion</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span>spring-boot-starter-logging<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">exclusion</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">exclusions</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"><span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dependency</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"><span
+				cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"
+																			 style="padding-right: 0.1px;"><span
+				class="cm-comment">&lt;!-- 使用自己的依赖 --&gt;</span></span></pre><pre class=" CodeMirror-line "
+																						 role="presentation"><span
+				role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span
+				class="cm-tag">dependency</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre
+				class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.springframework.boot<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"> &nbsp; &nbsp;<span
+				class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span>spring-boot-starter-log4j2<span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">artifactId</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line "
+																	   role="presentation"><span role="presentation"
+																								 style="padding-right: 0.1px;"><span
+				class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">dependency</span><span
+				class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div
+				style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 538px;"></div><div
+				class="CodeMirror-gutters" style="display: none; height: 538px;"></div></div></div></pre>
+		<p>&nbsp;</p>
+		<h2 id='二web开发'><span>二、Web开发</span></h2>
+		<h3 id='1-web配置'><span>1. web配置</span></h3>
+		<ul>
+			<li><span>SpringMVC： </span><code>spring.mvc</code></li>
+			<li><span>Web场景通用配置：</span><code>spring.web</code></li>
+			<li><span>文件上传配置：</span><code>spring.servlet.multipart</code></li>
+			<li><span>服务器配置：</span><code>server</code></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

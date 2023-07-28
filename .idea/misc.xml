@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Boot3-03-logging" />
+    <file type="web" url="file://$PROJECT_DIR$/Boot3-04-web" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-01/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-03-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-03-web/pom.xml" />
       </list>
     </option>
   </component>
