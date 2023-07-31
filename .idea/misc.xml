@@ -13,6 +13,9 @@
         <option value="$PROJECT_DIR$/Boot3-02/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-03-logging/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-03-web/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-05ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-06-features/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-07-core/pom.xml" />
       </list>
     </option>
   </component>

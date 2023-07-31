@@ -7,8 +7,8 @@ import org.springframework.web.servlet.function.ServerResponse;
 
 @Configuration
 public class WebFunctionConfig {
-    @Bean
-    RouterFunction<ServerResponse> userRoute() {
-
-    }
+//    @Bean
+//    RouterFunction<ServerResponse> userRoute() {
+//
+//    }
 }
