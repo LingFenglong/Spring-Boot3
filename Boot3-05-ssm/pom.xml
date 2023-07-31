@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lingfenglong</groupId>
-	<artifactId>Boot3-05ssm</artifactId>
+	<artifactId>Boot3-05-ssm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Boot3-05ssm</name>
 	<description>Boot3-05ssm</description>
@@ -47,6 +47,12 @@
 			<artifactId>mybatis-spring-boot-starter-test</artifactId>
 			<version>3.0.2</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lingfenglong</groupId>
+			<artifactId>Boot3-08-robot</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

@@ -2,8 +2,6 @@ package com.lingfenglong.core.controller;
 
 import com.lingfenglong.core.entity.User;
 import com.lingfenglong.core.event.LoginSuccessEvent;
-import com.lingfenglong.core.service.EventPublisher;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Controller;
