@@ -19,6 +19,9 @@
         <option value="$PROJECT_DIR$/Boot3-08-robot/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-05-ssm/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-09-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-11-rpc/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-12-message/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-13-security/pom.xml" />
       </list>
     </option>
   </component>

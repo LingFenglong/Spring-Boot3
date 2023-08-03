@@ -12,6 +12,11 @@
     <file url="file://$PROJECT_DIR$/Boot3-07-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Boot3-08-robot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Boot3-09-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Boot3-11-rpc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Boot3-12-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Boot3-12-message/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Boot3-13-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Boot3-13-security/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
