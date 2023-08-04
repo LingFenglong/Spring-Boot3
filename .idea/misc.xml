@@ -22,6 +22,7 @@
         <option value="$PROJECT_DIR$/Boot3-11-rpc/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-12-message/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-13-security/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-14-actuator/pom.xml" />
       </list>
     </option>
   </component>
