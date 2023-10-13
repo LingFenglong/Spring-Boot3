@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 @SpringBootTest
 class Boot309RedisApplicationTests {
@@ -59,4 +60,24 @@ class Boot309RedisApplicationTests {
         redisTemplate.opsForHash().put(mapName, "3", "c");
     }
 
+    @Test
+    void hyperLogLogTest() {
+        redisTemplate.opsForHyperLogLog().add("number", "1", "3", "3", "3", "3", "3", "3", "5", "7", "9", "11");
+        Long size = redisTemplate.opsForHyperLogLog().size("number");
+        System.out.println("size = " + size);
+    }
+
+    @Test
+    void bitMapTest() {
+        ValueOperations<String, String> forValue = redisTemplate.opsForValue();
+        forValue.setBit("zs", 0, true);
+        forValue.setBit("zs", 1, true);
+        System.out.println(forValue.getBit("zs", 0));
+        System.out.println(forValue.getBit("zs", 1));
+        System.out.println(forValue.getBit("zs", 2));
+        System.out.println(forValue.getBit("zs", 3));
+        System.out.println(forValue.getBit("zs", 4));
+
+        System.out.println("forValue.size(\"zs\") = " + forValue.size("zs"));
+    }
 }

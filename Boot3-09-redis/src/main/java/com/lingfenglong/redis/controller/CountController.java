@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -29,6 +30,12 @@ public class CountController {
         Long count = stringRedisTemplate.opsForValue().increment("count");
         return "访问了[" + count + "]次";
     }
+
+
+    //@GetMapping("/person/save")
+    //public String savePerson(@RequestParam ) {
+    //    return "person/save";
+    //}
 
     @GetMapping("/person/save")
     public String savePerson() {
