@@ -23,10 +23,12 @@
         <option value="$PROJECT_DIR$/Boot3-12-message/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-13-security/pom.xml" />
         <option value="$PROJECT_DIR$/Boot3-14-actuator/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-15-school/pom.xml" />
+        <option value="$PROJECT_DIR$/Boot3-AndroidOkHttpTest/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="JDK19" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
